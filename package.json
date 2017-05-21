@@ -28,6 +28,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "classnames": "^2.2.5",
+    "concurrently": "^3.4.0",
     "fs": "0.0.1-security",
     "moment": "^2.18.1",
     "node-sass": "^4.3.0",
