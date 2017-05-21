@@ -5,7 +5,7 @@ import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import _ from 'lodash';
 import classNames from 'classnames';
-import { scroller, animateScroll} from 'react-scroll'
+import { scroller } from 'react-scroll'
 
 import * as Actions from "../actions/itemActions.js";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -68,12 +68,36 @@ const Main = class Main extends Component{
     })
   }
 
+  getClosestDate(){
+    const now = moment.utc();
+    const data = this.props.items
+
+    //sort our datetimes based on closest to now
+    const sorted = data.sort(function(a, b) {
+      var a1 = moment.utc(a.start);
+      var b1 = moment.utc(b.start);
+      var dA = Math.abs(a1 - now),
+        dB = Math.abs(b1 - now);
+      if (dA < dB) {
+        return -1;
+      } else if (dA > dB) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+    return sorted[0];
+  }
+
   handleScrollToNow() {
-    animateScroll.scrollToBottom({
+    const scrollID = this.getClosestDate();
+    const elemId = 'item' + scrollID.id;
+
+    scroller.scrollTo(elemId, {
       duration: 1500,
       delay: 100,
       smooth: true
-    });
+    })
   }
 
   handleSearchUpdate(event) {
@@ -147,7 +171,7 @@ const Main = class Main extends Component{
                     dispatch={this.props.dispatch} />
         </section>
 
-        <a className="nowButton" onClick={this.handleScrollToNow}>NOW</a>
+        <a className="nowButton" onClick={this.handleScrollToNow.bind(this)}>NOW</a>
       </div>
     )
   }

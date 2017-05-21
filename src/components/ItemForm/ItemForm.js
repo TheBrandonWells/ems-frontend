@@ -27,7 +27,6 @@ export default class ItemForm extends React.Component{
   }
 
   onStartChange(e) {
-    console.log(e);
     this.setState({newStart: moment(e).format()})
   }
 
@@ -42,7 +41,6 @@ export default class ItemForm extends React.Component{
 
   onFormSubmit(e) {
     e.preventDefault();
-    console.log('sending:', this.state)
     const { dispatch } = this.props;
     if (this.state.newTitle && this.state.newRoom && this.state.newStart && this.state.newEnd) {
       dispatch(Actions.addItem(this.state.newTitle, this.state.newRoom, this.state.newStart, this.state.newEnd))

@@ -59,7 +59,6 @@ export function updateItem(id, eventName, roomName, start, end){
   return function(dispatch){
     axios.put(API_URL + id, dataObject)
     .then((response) =>{
-      console.log(response)
       dispatch({type: STORY_UPDATED, id: id, payload: response.data});
     })
     .catch((err) => {
@@ -83,7 +82,6 @@ export function addItem(eventName, roomName, start, end){
   return function(dispatch){
     axios.post(API_URL, dataObject)
     .then((response) =>{
-      console.log(response)
       dispatch({type: STORY_ADDED, payload: response.data});
     })
     .catch((err) => {
