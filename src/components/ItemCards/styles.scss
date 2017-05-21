@@ -1,0 +1,170 @@
+.bookingsContainer {
+  display: flex;
+
+  h2 {
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #6A6E73;
+    font-weight: normal;
+    margin-left: 10px;
+  }
+
+}
+
+.none {
+  font-size: 12px;
+  margin: 40px 10px;
+}
+
+.itemCards {
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+  padding: 0;
+  width: 100%;
+  overflow-y: scroll;
+
+  .day {
+    background: #eee;
+  }
+  ul {
+    padding: 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      margin: 0;
+      border-bottom: 1px solid #ddd;
+      flex-grow: 1;
+      background: #fff;
+      padding: 10px 0;
+
+      .itemTools {
+        position: absolute;
+        display: none;
+        right: 10px;
+        top: 5px;
+
+        i {
+          color: #407AE5;
+          margin-left: 5px;
+          background: transparent;
+          border: 0;
+
+          &:hover {
+            color: #999;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &:hover {
+        .itemTools {
+          display: block;
+        }
+      }
+
+    }
+  }
+  .cardContainer {
+    display: flex;
+    padding: 10px;
+
+    .cardHeader {
+      font-size: 14px;
+      font-weight: 700;
+      padding: 0;
+    }
+
+    .cardInfo {
+      flex: 3;
+    }
+
+    .cardTime {
+      margin-right: 35px;
+
+      p {
+        margin: 0;
+        padding: 0;
+        text-align: right;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  form {
+    input {
+      width: 80%;
+      border: 0;
+      margin: 10px 0;
+      height: 18px;
+      font-size: 14px;
+      padding: 0;
+      display: block;
+      background: #eee;
+      padding: 5px;
+    }
+  }
+}
+
+span {
+  font-size: 11px;
+  display: block;
+
+  i {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    color: #407AE5;
+  }
+}
+
+.itemCards form.editForm {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+
+  .itemTools {
+    display: block;
+  }
+
+  input {
+    margin-left: 10px;
+    width: 75%;
+    text-indent: 10px;
+    font-size: 14px;
+  }
+
+  label {
+    float: left;
+    margin-right: 10px;
+    padding-top: 5px;
+
+    &:first-child {
+      margin-top: 10px;
+    }
+  }
+
+  button {
+    border: 0;
+    color: #407AE5;
+    background: transparent;
+  }
+}
+
+.missingDate {
+  ul {
+    li {
+      padding: 20px;
+      font-size: 14px;
+    }
+  }
+}
