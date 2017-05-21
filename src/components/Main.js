@@ -86,6 +86,8 @@ const Main = class Main extends Component{
         return 0;
       }
     });
+
+    //return the first (closest) object
     return sorted[0];
   }
 
